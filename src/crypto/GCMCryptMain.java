@@ -13,8 +13,8 @@ public class GCMCryptMain {
 
 	/** AES */
 	public static final String AES = "AES";
-	/** GCMのIVの長さ */
-	public static final int GCM_IV_LENGTH = 16;
+	/** IVの長さ（AES-GCMの場合は12が最適らしい） */
+	public static final int GCM_IV_LENGTH = 12;
 	/** AESのキーの長さ ( 128 or 192 or 256 ) */
 	public static final int AES_KEY_SIZE = 256;
 	/** GCMのタグの長さ ( 96 or 104 or 112 or 120 or 128 ) */

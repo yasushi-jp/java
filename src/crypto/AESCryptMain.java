@@ -13,7 +13,7 @@ public class AESCryptMain {
 
 	/** AES */
 	public static final String AES = "AES";
-	/** GCMのIVの長さ */
+	/** IVの長さ（AES-CBCの場合は16 */
 	public static final int GCM_IV_LENGTH = 16;
 	/** AESのキーの長さ ( 128 or 192 or 256 ) */
 	public static final int AES_KEY_SIZE = 256;
