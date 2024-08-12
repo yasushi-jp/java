@@ -49,7 +49,6 @@ public class AesGcm {
 
 		// 暗号化
 		byte[] encryptedData = encrypt(plainTextData, secretKey, iv, aad);
-		;
 
 		// 暗号化データ出力
 		System.out.println("Encrypted Text : " + Base64.getEncoder().encodeToString(encryptedData));
