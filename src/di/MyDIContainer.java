@@ -14,15 +14,15 @@ public class MyDIContainer {
     }
 
     public void injectDependencies(Object object) {
-        Class<?> clazz = object.getClass();
-        for (Field field : clazz.getDeclaredFields()) {
-            if (field.isAnnotationPresent(MyAutowired.class)) {
-                Class<?> fieldType = field.getType();
-                Object dependency = beans.get(fieldType);
+        Class<?> clazz = object.getClass();							// 渡されたオブジェクトのクラス情報を取得
+        for (Field field : clazz.getDeclaredFields()) {				// クラスのフィールドを取得
+            if (field.isAnnotationPresent(MyAutowired.class)) {		// フィールドに @MyAutowired があるかチェック
+                Class<?> fieldType = field.getType();				// フィールドの型を取得
+                Object dependency = beans.get(fieldType);			// 依存オブジェクトを beans から取得
                 if (dependency != null) {
-                    field.setAccessible(true);
+                    field.setAccessible(true);						// private フィールドでもアクセスできるようにする
                     try {
-                        field.set(object, dependency);
+                        field.set(object, dependency);				// フィールドにインスタンスをセット
                     } catch (IllegalAccessException e) {
                         throw new RuntimeException("Failed to inject dependency", e);
                     }
